@@ -18,26 +18,30 @@ let gridCells = document.querySelectorAll(".grid-cell");
 
 gridCells.forEach(cell => cell.addEventListener("click", gridCellInfo));
 
+let livingNeighborsNum;
+
 function gridCellInfo() {
     this.classList.add("alive");
     let cellNum = Number(this.dataset.num);
-    console.log(cellNum);
-    console.log(cellNum % 50);
 
-    let neighborNumbers = [];
+    let neighborNums = [];
+    let livingNeighbors = [];
 
     if (cellNum % 50 === 0) {
-        neighborNumbers = ["-1", "49", "50", "-50", "-51"];
+        neighborNums = ["-1", "49", "50", "-50", "-51"];
     } else if (cellNum % 50 === 1) {
-        neighborNumbers = ["1", "-49", "50", "-50", "51"];
+        neighborNums = ["1", "-49", "50", "-50", "51"];
     } else {
-        neighborNumbers = ["1", "-1", "49", "-49", "50", "-50", "51", "-51"];
+        neighborNums = ["1", "-1", "49", "-49", "50", "-50", "51", "-51"];
     }
 
-    neighborNumbers.forEach(function(num) {
+    neighborNums.forEach(function(num) {
         neighborNum = cellNum + Number(num);
         let neighbor = document.querySelector(`[data-num="${neighborNum}"]`);
         if (!neighbor) return;
-        neighbor.classList.add("neighbor");
+        if (neighbor.classList.contains("alive")) livingNeighbors.push(neighbor);
     });
+
+    livingNeighborsNum = livingNeighbors.length;
+    console.log(livingNeighborsNum);
 }
