@@ -1,6 +1,5 @@
 //First create the grid
 //Doing this in JS to avoid a huge HTML file
-
 const gridContainer = document.querySelector("#grid-container");
 function createGrid() {
     for (let i = 1; i < 1251; i++) {
@@ -21,7 +20,7 @@ function makeAlive() {
     this.classList.add("alive");
 }
 
-//For each cell, count living neighbors
+//Get busy living or get busy dying
 window.addEventListener("keydown", checkGrid);
 
 let livingNeighbors = [];
@@ -34,31 +33,29 @@ function checkGrid() {
 function countLivingNeighbors(cell) {
     let cellNum = Number(cell.dataset.num);
 
-    let neighborNums = [];
+    let neighborFinders = [];
 
     if (cellNum % 50 === 0) {
-        neighborNums = ["-1", "49", "50", "-50", "-51"];
+        neighborFinders = ["-1", "49", "50", "-50", "-51"];
     } else if (cellNum % 50 === 1) {
-        neighborNums = ["1", "-49", "50", "-50", "51"];
+        neighborFinders = ["1", "-49", "50", "-50", "51"];
     } else {
-        neighborNums = ["1", "-1", "49", "-49", "50", "-50", "51", "-51"];
+        neighborFinders = ["1", "-1", "49", "-49", "50", "-50", "51", "-51"];
     }
 
-    neighborNums.forEach(function(num) {
+    neighborFinders.forEach(function(num) {
         neighborNum = cellNum + Number(num);
         let neighbor = document.querySelector(`[data-num="${neighborNum}"]`);
         if (!neighbor) return;
         if (neighbor.classList.contains("alive")) livingNeighbors.push(neighbor);
     });
 
-        cell.setAttribute("data-livingneighbors", `${livingNeighbors.length}`);
-        livingNeighbors = [];
+    cell.setAttribute("data-livingneighbors", `${livingNeighbors.length}`);
+
+    livingNeighbors = [];
 }
 
-
 function life(cell) {
-    if (cell.classList.contains("alive")) console.log(cell, livingNeighbors.length);
-
     switch (true) {
         case cell.classList.contains("alive") && Number(cell.dataset.livingneighbors) < 2:
             cell.classList.remove("alive");
