@@ -12,20 +12,29 @@ function createGrid() {
 }
 createGrid();
 
-//Then
-
+//Select initial living cells
 let gridCells = document.querySelectorAll(".grid-cell");
 
-gridCells.forEach(cell => cell.addEventListener("click", gridCellInfo));
+gridCells.forEach(cell => cell.addEventListener("click", makeAlive));
 
-let livingNeighborsNum;
-
-function gridCellInfo() {
+function makeAlive() {
     this.classList.add("alive");
-    let cellNum = Number(this.dataset.num);
+}
+
+//For each cell, count living neighbors
+window.addEventListener("keydown", checkGrid);
+
+let livingNeighbors = [];
+
+function checkGrid() {
+    gridCells.forEach(cell => countLivingNeighbors(cell));
+    gridCells.forEach(cell => life(cell));
+}
+
+function countLivingNeighbors(cell) {
+    let cellNum = Number(cell.dataset.num);
 
     let neighborNums = [];
-    let livingNeighbors = [];
 
     if (cellNum % 50 === 0) {
         neighborNums = ["-1", "49", "50", "-50", "-51"];
@@ -42,6 +51,28 @@ function gridCellInfo() {
         if (neighbor.classList.contains("alive")) livingNeighbors.push(neighbor);
     });
 
-    livingNeighborsNum = livingNeighbors.length;
-    console.log(livingNeighborsNum);
+        cell.setAttribute("data-livingneighbors", `${livingNeighbors.length}`);
+        livingNeighbors = [];
+}
+
+
+function life(cell) {
+    if (cell.classList.contains("alive")) console.log(cell, livingNeighbors.length);
+
+    switch (true) {
+        case cell.classList.contains("alive") && Number(cell.dataset.livingneighbors) < 2:
+            cell.classList.remove("alive");
+            break;
+        case cell.classList.contains("alive") && Number(cell.dataset.livingneighbors) > 3:
+            cell.classList.remove("alive");
+            break;
+        case cell.classList.contains("alive") && Number(cell.dataset.livingneighbors) == 3:
+            break;
+        case cell.classList.contains("alive") && Number(cell.dataset.livingneighbors) == 2:
+            break;
+        case !cell.classList.contains("alive") && Number(cell.dataset.livingneighbors) == 3:
+            cell.classList.add("alive");
+            break;
+        default: return;
+    }
 }
