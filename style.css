@@ -3,11 +3,6 @@ body {
     padding: 0;
 }
 
-div {
-    border: 1px solid red;
-    box-sizing: border-box;
-}
-
 #grid-container {
     grid-template-columns: repeat(50, auto);
     display: inline-grid;
@@ -16,6 +11,8 @@ div {
 .grid-cell {
     width: 20px;
     height: 20px;
+    border: 1px solid red;
+    box-sizing: border-box;
 }
 
 .alive {
