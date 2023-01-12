@@ -1,6 +1,7 @@
 //First create the grid
 //Doing this in JS to avoid a huge HTML file
 const gridContainer = document.querySelector("#grid-container");
+
 function createGrid() {
     for (let i = 1; i < 1251; i++) {
         gridCell = document.createElement("div");
@@ -20,10 +21,17 @@ function makeAlive() {
     this.classList.add("alive");
 }
 
-//Get busy living or get busy dying
-window.addEventListener("keydown", checkGrid);
+//Play
+const playButton = document.querySelector("#play");
+
+playButton.addEventListener("click", play);
 
 let livingNeighbors = [];
+let playing;
+
+function play() {
+    playing = setInterval(checkGrid, 500);
+}
 
 function checkGrid() {
     gridCells.forEach(cell => countLivingNeighbors(cell));
@@ -72,4 +80,22 @@ function life(cell) {
             break;
         default: return;
     }
+}
+
+//Pause
+const pauseButton = document.querySelector("#pause");
+
+pauseButton.addEventListener("click", pause);
+
+function pause() {
+    clearInterval(playing);
+}
+
+//Reset
+const resetButton = document.querySelector("#reset");
+
+resetButton.addEventListener("click", reset);
+
+function reset() {
+    gridCells.forEach(cell => cell.classList.remove("alive"));
 }
