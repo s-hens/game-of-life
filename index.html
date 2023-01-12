@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="./style.css">
     <!--JS-->
     <script src="./javascript.js" defer></script>
-    <!--Google Fonts-->
+    <!--Google icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+    rel="stylesheet">
+    <!--Google fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&family=Rubik+Mono+One&family=Rye&family=Shrikhand&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -37,8 +40,12 @@
         </div>
         <div id="grid-container"></div>
     </div>
-    <div id="controls">Reset Play Pause</div>
-    <div id="info">Info</div>
-    <div id="footer">Footer</div>
+    <div class="controls">
+        <button id="play"><span class="material-icons-sharp md-48">play_arrow</span></button>
+        <button id="pause"><span class="material-icons-sharp md-48">pause</span></button>
+        <button id="reset">Reset</button>
+    </div>
+    <div class="info">Info</div>
+    <div class="footer">Footer</div>
 </body>
 </html>
