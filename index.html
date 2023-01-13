@@ -48,17 +48,125 @@
     <div class="below-grid">
         <div class="rules">
             <div class="rules-header">Rules</div>
+            <p>Click any cell in the grid above to give it life. When you're ready, hit the ⏵ play button to watch the cells react.</p>
             <ol>
-                <li>Any live cell with fewer than 2 live neighbours dies, as if by solitude.</li>
-                <li>Any live cell with more than 3 live neighbours dies, as if by overpopulation.</li>
-                <li>Any live cell with 2 or 3 live neighbours lives on to the next generation.</li>
-                <li>Any dead cell with exactly 3 live neighbours becomes a live cell, as if by reproduction.</li>
+                <li><p>Any live cell with fewer than 2 live neighbours dies, as if by solitude.</p>
+                    <div class="example">
+                        <div class="ex-grid-container">
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell-live"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell-live"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell"></div>
+                        </div>
+                         🡆 
+                        <div class="ex-grid-container">
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell"></div>
+                        </div>
+                    </div>
+                </li>
+                <li><p>Any live cell with more than 3 live neighbours dies, as if by overpopulation.</p>
+                    <div class="example">
+                        <div class="ex-grid-container">
+                            <div class="ex-cell-live"></div>
+                            <div class="ex-cell-live"></div>
+                            <div class="ex-cell-live"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell-live"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell-live"></div>
+                            <div class="ex-cell-live"></div>
+                            <div class="ex-cell-live"></div>
+                        </div>
+                         🡆 
+                        <div class="ex-grid-container">
+                            <div class="ex-cell-live"></div>
+                            <div class="ex-cell-live"></div>
+                            <div class="ex-cell-live"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell-live"></div>
+                            <div class="ex-cell-live"></div>
+                            <div class="ex-cell-live"></div>
+                        </div>
+                </li>
+                <li><p>Any live cell with 2 or 3 live neighbours lives on to the next generation.</p>
+                    <div class="example">
+                        <div class="ex-grid-container">
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell-live"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell-live"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell-live"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell"></div>
+                        </div>
+                         🡆 
+                        <div class="ex-grid-container">
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell-live"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell"></div>
+                        </div>
+                    </div>
+                </li>
+                <li><p>Any dead cell with exactly 3 live neighbours becomes a live cell, as if by reproduction.</p>
+                    <div class="example">
+                        <div class="ex-grid-container">
+                            <div class="ex-cell-live"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell-live"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell-live"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell-live"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell-live"></div>
+                        </div>
+                         🡆 
+                        <div class="ex-grid-container">
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell-live"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell-live"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell-live"></div>
+                            <div class="ex-cell"></div>
+                            <div class="ex-cell-live"></div>
+                            <div class="ex-cell"></div>
+                        </div>
+                    </div>
+                </li>
             </ol>
         </div>
         <div class="info">
             <div class="info-header1">More</div><div class="info-header2">Info</div>
+            <p>The Game of Life is a cellular automaton invented by mathematician John Conway.</p>
+            <p>It consists of a grid of cells which, based on a few mathematical rules, can live, die or multiply. Depending on the initial conditions, the cells form various patterns throughout the course of the game.</p>
+            <div class="patterns-header">Patterns</div>
+            <p>Try these patterns!</p>
         </div>
     </div>
-    <div class="footer">Game concept by John Horton Conway | Code by Steph Henson | <a href="https://github.com/s-hens/game-of-life">GitHub</a></div>
+    <div class="footer">Game concept by John Horton Conway | Code by <a href="https://github.com/s-hens/game-of-life">Steph Henson</a></div>
 </body>
 </html>
