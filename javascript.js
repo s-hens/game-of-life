@@ -18,7 +18,7 @@ let gridCells = document.querySelectorAll(".grid-cell");
 gridCells.forEach(cell => cell.addEventListener("click", makeAlive));
 
 function makeAlive() {
-    this.classList.add("alive");
+    this.classList.toggle("alive");
 }
 
 //Play
