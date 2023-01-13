@@ -91,11 +91,11 @@ function pause() {
     clearInterval(playing);
 }
 
-//Reset
-const resetButton = document.querySelector("#reset");
+//Clear
+const clearButton = document.querySelector("#clear");
 
-resetButton.addEventListener("click", reset);
+clearButton.addEventListener("click", clear);
 
-function reset() {
+function clear() {
     gridCells.forEach(cell => cell.classList.remove("alive"));
 }
