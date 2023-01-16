@@ -371,7 +371,7 @@ button#clear:hover {
 }
 
 .ex-grid-container-medium {
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(7, auto);
     display: inline-grid;
     background-color: #FDFEFE;
     border-right: 1px solid #B2EBF2;
