@@ -43,14 +43,23 @@
         <div id="grid-container"></div>
     </div>
     <div class="controls">
+        <button id="nextGen"><span class="material-icons-sharp md-48">redo</span></button>
         <button id="play"><span class="material-icons-sharp md-48">play_arrow</span></button>
         <button id="pause"><span class="material-icons-sharp md-48">pause</span></button>
         <button id="clear">Clear</button>
+        <div class="counter">
+            <div class="generation">
+                Generation:<span class="count">0</span>
+            </div>
+            <div class="live-cell-count">
+                Live Cells:<span class="count">0</span>
+            </div>
+        </div>
     </div>
-    <div class="below-grid">
+    <div class="lower-page">
         <div class="rules">
             <div class="rules-header">Rules</div>
-            <p>Click any cell in the grid above to toggle its "live" status. When you're ready, hit the ⏵ play button to watch the cells react.</p>
+            <p>Click any cell in the grid above to toggle its "live" status. When you're ready, click ⏵ to watch the cells react indefinitely. Or click ↷ to progress by just one generation.</p>
             <ol>
                 <li><p>Any live cell with fewer than 2 live neighbours dies, as if by solitude.</p>
                     <div class="example">

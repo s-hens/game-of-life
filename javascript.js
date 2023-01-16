@@ -19,15 +19,29 @@ gridCells.forEach(cell => cell.addEventListener("click", makeAlive));
 
 function makeAlive() {
     this.classList.toggle("alive");
+    liveCells = document.querySelectorAll(".grid-cell.alive").length;
+    liveCellCount.innerHTML = `Live Cells:<span class="count">${liveCells}</span>`
 }
 
-//Play
+//One generation
+const genButton = document.querySelector("#nextGen");
+
+genButton.addEventListener("click", checkGrid);
+
+//Play (indefinite generations)
 const playButton = document.querySelector("#play");
 
 playButton.addEventListener("click", play);
 
+//Get busy living or get busy dying
+
+const genCount = document.querySelector(".generation");
+const liveCellCount = document.querySelector(".live-cell-count");
+
 let livingNeighbors = [];
 let playing;
+let generation = 0;
+let liveCells = 0;
 
 function play() {
     playing = setInterval(checkGrid, 500);
@@ -36,6 +50,13 @@ function play() {
 function checkGrid() {
     gridCells.forEach(cell => countLivingNeighbors(cell));
     gridCells.forEach(cell => life(cell));
+
+    generation = generation + 1;
+    genCount.innerHTML = `Generation:<span class="count">${generation}</span>`;
+
+    liveCells = document.querySelectorAll(".grid-cell.alive").length;
+    liveCellCount.innerHTML = `Live Cells:<span class="count">${liveCells}</span>`
+
     if (document.querySelector(".grid-cell.alive") != null) {
         return;
     } else {
@@ -103,4 +124,8 @@ clearButton.addEventListener("click", clear);
 
 function clear() {
     gridCells.forEach(cell => cell.classList.remove("alive"));
+    generation = 0;
+    genCount.innerHTML = `Generation:<span class="count">0</span>`;
+    liveCells = 0;
+    liveCellCount.innerHTML = `Live Cells:<span class="count">0</span>`;
 }
