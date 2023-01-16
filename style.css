@@ -293,6 +293,7 @@ button#clear:hover {
 .rules {
     margin: 40px 40px 40px 20px;
     height: fit-content;
+    flex: none;
 }
 
 .info {
@@ -301,6 +302,7 @@ button#clear:hover {
 
 .info-patterns {
     margin: 40px 20px 40px 0;
+    flex: none;
 }
 
 .rules-header, .info-header1, .info-header2, .patterns-header {
