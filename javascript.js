@@ -33,9 +33,22 @@ function play() {
     playing = setInterval(checkGrid, 500);
 }
 
+
+function checkToPause(cell) {
+    if (cell.classList.contains("alive")) liveList.push(cell);
+    console.log(liveList);
+}
+
 function checkGrid() {
+    console.log("Running checkGrid");
+    liveList = [];
     gridCells.forEach(cell => countLivingNeighbors(cell));
     gridCells.forEach(cell => life(cell));
+    if (document.querySelector(".grid-cell.alive") != null) {
+        return;
+    } else {
+        pause();
+    }
 }
 
 function countLivingNeighbors(cell) {
