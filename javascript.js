@@ -1,21 +1,43 @@
+//Media query
+var smallScreen = window.matchMedia("(max-width: 1050px)");
+
+window.addEventListener("resize", resize);
+
+function resize() {
+    clear();
+    createGrid();
+}
+
 //First create the grid
 //Doing this in JS to avoid a huge HTML file
 const gridContainer = document.querySelector("#grid-container");
+let gridCells;
 
 function createGrid() {
-    for (let i = 1; i < 1251; i++) {
-        gridCell = document.createElement("div");
-        gridCell.classList.add("grid-cell");
-        gridCell.setAttribute("data-num", `${i}`);
-        gridContainer.appendChild(gridCell);
+    gridContainer.innerHTML = ``;
+    if (smallScreen.matches) {
+        //Small (mobile) screen size
+        for (let i = 1; i < 625; i++) {
+            gridCell = document.createElement("div");
+            gridCell.classList.add("grid-cell");
+            gridCell.setAttribute("data-num", `${i}`);
+            gridContainer.appendChild(gridCell);
+        }
+    } else {
+        //Big (desktop) screen size
+        for (let i = 1; i < 1251; i++) {
+            gridCell = document.createElement("div");
+            gridCell.classList.add("grid-cell");
+            gridCell.setAttribute("data-num", `${i}`);
+            gridContainer.appendChild(gridCell);
+        }
     }
+    gridCells = document.querySelectorAll(".grid-cell");
+    gridCells.forEach(cell => cell.addEventListener("click", makeAlive));
 }
 createGrid();
 
 //Select initial living cells
-let gridCells = document.querySelectorAll(".grid-cell");
-
-gridCells.forEach(cell => cell.addEventListener("click", makeAlive));
 
 function makeAlive() {
     this.classList.toggle("alive");
@@ -34,7 +56,6 @@ const playButton = document.querySelector("#play");
 playButton.addEventListener("click", play);
 
 //Get busy living or get busy dying
-
 const genCount = document.querySelector(".generation");
 const liveCellCount = document.querySelector(".live-cell-count");
 
@@ -69,12 +90,24 @@ function countLivingNeighbors(cell) {
 
     let neighborFinders = [];
 
-    if (cellNum % 50 === 0) {
-        neighborFinders = ["-1", "49", "50", "-50", "-51"];
-    } else if (cellNum % 50 === 1) {
-        neighborFinders = ["1", "-49", "50", "-50", "51"];
+    if (smallScreen.matches) {
+        //Small (mobile) screen size
+        if (cellNum % 25 === 0) {
+            neighborFinders = ["-1", "24", "25", "-25", "-26"];
+        } else if (cellNum % 25 === 1) {
+            neighborFinders = ["1", "-24", "25", "-25", "26"];
+        } else {
+            neighborFinders = ["1", "-1", "24", "-24", "25", "-25", "26", "-26"];
+        }
     } else {
-        neighborFinders = ["1", "-1", "49", "-49", "50", "-50", "51", "-51"];
+        //Big (desktop) screen size
+        if (cellNum % 50 === 0) {
+            neighborFinders = ["-1", "49", "50", "-50", "-51"];
+        } else if (cellNum % 50 === 1) {
+            neighborFinders = ["1", "-49", "50", "-50", "51"];
+        } else {
+            neighborFinders = ["1", "-1", "49", "-49", "50", "-50", "51", "-51"];
+        }
     }
 
     neighborFinders.forEach(function(num) {
