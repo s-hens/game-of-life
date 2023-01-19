@@ -414,21 +414,10 @@ body {
     margin: 0;
     padding: 0;
 }
+
 .header {
-    padding-top: 20px;
-    width: 90%;
-}
-
-.controls, .buttons, .counter {
-    width: 95%;
-}
-
-.graph-paper {
+    padding: 20px 0;
     width: 93%;
-}
-
-.buttons{
-    width: 100%;
 }
 
 .g, .a, .m, .e, .l, .i, .f, .E {
@@ -448,6 +437,10 @@ body {
     line-height: 9vw;
 }
 
+.graph-paper {
+    width: 93%;
+}
+
 .margin {
     width: 5%;
 }
@@ -459,7 +452,7 @@ body {
 }
 
 #grid-container {
-    grid-template-columns: repeat(25, auto);
+    grid-template-columns: repeat(20, auto);
     place-items: stretch;
     width: 100%;
 }
@@ -472,6 +465,7 @@ body {
 
 .controls {
     flex-direction: column;
+    width: 90vw;
     padding: 20px;
 }
 
@@ -479,6 +473,11 @@ body {
     font-size: 5vw;
     line-height: 5vw;
     margin-top: 20px;
+}
+
+.buttons, .counter {
+    width: 100%;
+    padding: 5px;
 }
 
 .lower-page {

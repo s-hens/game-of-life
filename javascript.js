@@ -1,11 +1,16 @@
 //Media query
 var smallScreen = window.matchMedia("(max-width: 1050px)");
 
+let currentScreen = window.innerWidth;
 window.addEventListener("resize", resize);
 
 function resize() {
-    clear();
-    createGrid();
+    if (currentScreen != window.innerWidth) {
+        clear();
+        createGrid();
+    } else {
+        return;
+    }
 }
 
 //First create the grid
@@ -17,7 +22,7 @@ function createGrid() {
     gridContainer.innerHTML = ``;
     if (smallScreen.matches) {
         //Small (mobile) screen size
-        for (let i = 1; i < 625; i++) {
+        for (let i = 1; i < 201; i++) {
             gridCell = document.createElement("div");
             gridCell.classList.add("grid-cell");
             gridCell.setAttribute("data-num", `${i}`);
@@ -38,7 +43,6 @@ function createGrid() {
 createGrid();
 
 //Select initial living cells
-
 function makeAlive() {
     this.classList.toggle("alive");
     liveCells = document.querySelectorAll(".grid-cell.alive").length;
@@ -92,12 +96,12 @@ function countLivingNeighbors(cell) {
 
     if (smallScreen.matches) {
         //Small (mobile) screen size
-        if (cellNum % 25 === 0) {
-            neighborFinders = ["-1", "24", "25", "-25", "-26"];
-        } else if (cellNum % 25 === 1) {
-            neighborFinders = ["1", "-24", "25", "-25", "26"];
+        if (cellNum % 20 === 0) {
+            neighborFinders = ["-1", "19", "20", "-20", "-21"];
+        } else if (cellNum % 20 === 1) {
+            neighborFinders = ["1", "-19", "20", "-20", "21"];
         } else {
-            neighborFinders = ["1", "-1", "24", "-24", "25", "-25", "26", "-26"];
+            neighborFinders = ["1", "-1", "19", "-19", "20", "-20", "21", "-21"];
         }
     } else {
         //Big (desktop) screen size
