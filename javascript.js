@@ -5,6 +5,8 @@ let currentScreen = window.innerWidth;
 window.addEventListener("resize", resize);
 
 function resize() {
+    //Scrolling in Safari/iOS triggers window:resize event
+    //Check for a true resize vs. scroll
     if (currentScreen != window.innerWidth) {
         clear();
         createGrid();

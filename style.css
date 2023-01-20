@@ -345,6 +345,16 @@ button#clear:hover {
     letter-spacing: -0.1em;
 }
 
+.material-icons-sharp.md-18 {
+    font-size: 18px;
+    line-height: 20px;
+    transform: translateY(3px);
+}
+
+.material-icons-sharp.md-36 {
+    font-size: 36px;
+}
+
 /* Examples */
 
 .example {
