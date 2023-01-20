@@ -505,6 +505,15 @@ body {
     padding: 5%;
 }
 
+.material-icons-sharp.md-18 {
+    font-size: 4vw;
+    line-height: 4vw;
+}
+
+.material-icons-sharp.md-36 {
+    font-size: 6vw;
+}
+
 .rules {
     margin: 20px 0 10px;
 }
